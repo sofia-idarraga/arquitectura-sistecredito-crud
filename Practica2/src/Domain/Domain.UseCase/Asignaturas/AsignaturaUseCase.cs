@@ -24,13 +24,18 @@ namespace Domain.UseCase.Asignaturas
             _asignaturaRepository = asignaturaRepository;
         }
 
+        /// <summary>
+        ///  <see cref="IAsignaturaUseCase.ActualizarAsignatura(Asignatura)"/>
+        /// </summary>
+        /// <param name="asignatura"></param>
+        /// <returns></returns>
         public async Task<Asignatura> ActualizarAsignatura(Asignatura asignatura)
         {
             return await _asignaturaRepository.ActualizarAsignatura(asignatura);
         }
 
         /// <summary>
-        ///  <see cref="IAsignaturaRepository.CrearAsignaturaAsync(Asignatura)"/>
+        ///  <see cref="IAsignaturaUseCase.CrearAsignatura(Asignatura)"/>
         /// </summary>
         /// <param name="asignatura"></param>
         /// <returns></returns>
@@ -39,18 +44,28 @@ namespace Domain.UseCase.Asignaturas
             return await _asignaturaRepository.CrearAsignaturaAsync(asignatura);
         }
 
+        /// <summary>
+        /// <see cref="IAsignaturaUseCase.EliminarAsignatura(string)"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<Asignatura> EliminarAsignatura(string id)
         {
             return await _asignaturaRepository.EliminarAsignatura(id);
         }
 
+        /// <summary>
+        /// <see cref="IAsignaturaUseCase.ObtenerAsignaturaPorId(string)"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<Asignatura> ObtenerAsignaturaPorId(string id)
         {
             return await _asignaturaRepository.ObtenerAsignaturaPorId(id);
         }
 
         /// <summary>
-        /// <see cref="IAsignaturaRepository.ObtenerAsignaturasAsync()"/>
+        /// <see cref="IAsignaturaUseCase.ObtenerAsignaturas()"/>
         /// </summary>
         /// <returns></returns>
         public async Task<List<Asignatura>> ObtenerAsignaturas()

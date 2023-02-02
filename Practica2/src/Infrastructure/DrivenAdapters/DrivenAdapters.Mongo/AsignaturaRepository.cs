@@ -12,15 +12,27 @@ using System.Threading.Tasks;
 
 namespace DrivenAdapters.Mongo
 {
+    /// <summary>
+    /// Asignatura Repository
+    /// </summary>
     public class AsignaturaRepository : IAsignaturaRepository
     {
         private readonly IMongoCollection<AsignaturaEntity> _collectionAsignaturas;
 
+        /// <summary>
+        /// Inicializa una instancia de <see cref="AsignaturaRepository"/> class.
+        /// </summary>
+        /// <param name="mongodb"></param>
         public AsignaturaRepository(IContext mongodb)
         {
             _collectionAsignaturas = mongodb.Asignaturas;
         }
 
+        /// <summary>
+        /// <see cref="IAsignaturaRepository.ActualizarAsignatura(Asignatura)"/>
+        /// </summary>
+        /// <param name="asignatura"></param>
+        /// <returns></returns>
         public async Task<Asignatura> ActualizarAsignatura(Asignatura asignatura)
         {
             AsignaturaEntity asignaturaEntity =
@@ -30,6 +42,11 @@ namespace DrivenAdapters.Mongo
             return asignatura;
         }
 
+        /// <summary>
+        /// <see cref="IAsignaturaRepository.CrearAsignaturaAsync(Asignatura)"/>
+        /// </summary>
+        /// <param name="asignatura"></param>
+        /// <returns></returns>
         public async Task<Asignatura> CrearAsignaturaAsync(Asignatura asignatura)
         {
             AsignaturaEntity asignaturaEntity =
@@ -38,6 +55,11 @@ namespace DrivenAdapters.Mongo
             return asignaturaEntity.AsDomainEntity();
         }
 
+        /// <summary>
+        /// <see cref="IAsignaturaRepository.EliminarAsignatura(string)"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<Asignatura> EliminarAsignatura(string id)
         {
             var filter = Builders<AsignaturaEntity>.Filter.Eq(a => a.Id, id);
@@ -45,6 +67,11 @@ namespace DrivenAdapters.Mongo
             return result.AsDomainEntity();
         }
 
+        /// <summary>
+        /// <see cref="IAsignaturaRepository.ObtenerAsignaturaPorId(string)"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<Asignatura> ObtenerAsignaturaPorId(string id)
         {
             var filter = Builders<AsignaturaEntity>.Filter.Eq(a => a.Id, id);
@@ -52,6 +79,10 @@ namespace DrivenAdapters.Mongo
             return result.AsDomainEntity();
         }
 
+        /// <summary>
+        /// <see cref="IAsignaturaRepository.ObtenerAsignaturasAsync()"/>
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Asignatura>> ObtenerAsignaturasAsync()
         {
             IAsyncCursor<AsignaturaEntity> asignaturas = await _collectionAsignaturas.FindAsync(Builders<AsignaturaEntity>.Filter.Empty);

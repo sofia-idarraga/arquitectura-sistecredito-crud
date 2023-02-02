@@ -24,10 +24,25 @@ namespace Domain.Model.Entities.Gateway
         /// <returns></returns>
         Task<Asignatura> CrearAsignaturaAsync(Asignatura asignatura);
 
+        /// <summary>
+        /// Actualizar asignatura
+        /// </summary>
+        /// <param name="asignatura"></param>
+        /// <returns></returns>
         Task<Asignatura> ActualizarAsignatura(Asignatura asignatura);
 
+        /// <summary>
+        /// ObtenerAsignaturaPorId
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         Task<Asignatura> ObtenerAsignaturaPorId(string id);
 
+        /// <summary>
+        /// EliminarAsignatura
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         Task<Asignatura> EliminarAsignatura(string id);
     }
 }

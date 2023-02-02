@@ -46,6 +46,12 @@ namespace Domain.Model.Entities
             Profesor = profesor;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="creditos"></param>
+        /// <param name="profesor"></param>
         public Asignatura(string nombre, int creditos, string profesor)
         {
             Nombre = nombre;
